@@ -8,11 +8,18 @@ and_prob a b = a * b / 100.0
 
 or_prob :: Double -> Double -> Double
 or_prob a b = ((a + b) - (a * b) / 100)
--- 50 + 50 - (50 * 50) / 100
--- h h | h t | t h | t t
 
 and_prob_formatted :: Double -> Double -> [Char]
 and_prob_formatted a b = put_percent_sign (and_prob a b)
 
 or_prob_formatted a b = put_percent_sign (or_prob a b)
---a = 50% b = 60%, result of a and b should be (a / 100) * (b / 100) * 100
+
+and_of_x_y_times_prob :: Double -> Double -> Double
+and_of_x_y_times_prob x y = recursive_and_of_x_y_times_prob x x y
+
+recursive_and_of_x_y_times_prob :: Double -> Double -> Double -> Double
+recursive_and_of_x_y_times_prob const_x var_x y = if y > 1
+  then do 
+  let next_y = y - 1
+  recursive_and_of_x_y_times_prob const_x (and_prob const_x var_x) next_y
+  else var_x
