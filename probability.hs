@@ -35,3 +35,5 @@ recursive_or_of_x_n_times_prob const_x var_x y = if y > 1
   let next_y = y - 1
   recursive_or_of_x_n_times_prob const_x (or_prob const_x var_x) next_y
   else var_x
+
+combination_prob m n = m ^ n
