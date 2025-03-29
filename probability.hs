@@ -37,4 +37,4 @@ recursive_or_of_x_n_times_prob const_x var_x y = if y > 1
   else var_x
 
 --This means the number of possible combinations when in n combinations of m distinct states
-combination_prob m n = m ^ n
+possible_combinations m n = m ^ n
